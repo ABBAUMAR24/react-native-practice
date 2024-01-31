@@ -1,71 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import  React from "react";
-import { StyleSheet, Text, SafeAreaView , Button, TextInput, View, TouchableOpacity, FlatList} from 'react-native';
-import { useState , useEffect} from "react";
-import tw from 'twrnc';
+import { StyleSheet, Text, TextInput, SafeAreaView, View } from 'react-native'
+import React from 'react'
+import tw  from "twrnc";
 
-
-export default function App() {
-  const [data, setdata] = useState([])
-  
-
-const fetchdata = async ( ) => {
- res = await fetch (  `https://jsonplaceholder.typicode.com/posts/1`)
- res = await res.json()
- setdata(res)
-
-}
-
-useEffect(() => {
-  fetchdata();
-},[])
-
-
-  const [name, setname] = useState('')
-   const Del = () => {
-    setname(' ')
-   }
-  
+const App = () => {
   return (
-    <SafeAreaView style={tw `mx-10 my-20 `}>
-      <View >
-        <TextInput
-        value={name}
-        placeholder='text here'
-        onChangeText={(setname)}
-        />
-
-      <Text style={tw ``}>text this text is at the top {name} </Text>
-      <TouchableOpacity onPress={(Del)}>
-        
-        <Text style={tw `bg-red-400`}>clear text</Text>
-      </TouchableOpacity>
+    <View style={tw `mt-10`}>
+      <Text style={tw `text-3xl font-semibold text-center `}>Super World</Text>
+      <TextInput
+      style={tw `ml-4 text-sm border-color-red`}
+      placeholder='search for pdf'
       
-      <StatusBar style="auto" />
-      <FlatList
-      data={data}
-      keyExtractor={({id}) => id}
-      renderItem={({item}) =>{
-        <Text>{console.log(item)}</Text>
-      }}
+      
       />
     </View>
-    </SafeAreaView>
-    
-  );
+  )
 }
 
-const styles = StyleSheet.create({});
+export default App
 
-
-
-
-
-
-
-
-
-
-
-
-
+const styles = StyleSheet.create({})
