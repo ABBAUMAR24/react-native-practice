@@ -10,11 +10,11 @@ const App = () => {
   const [post , setpost] = useState([])
   const inputRef = useRef()
 
-const fetchdata = async()  =>  {
+const fetchdata = async( limit = 10 )  =>  {
   setloading(true)
-  const response = await fetch(`https://jsnplaceholder.typicode.com/post/1`)
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${limit}`)
   const data = await response.json()
-  setpost(data)
+  setpost([data])
   setloading(false)
 }
 
@@ -46,7 +46,7 @@ if (loading) {
         data={post}
         renderItem={({ item }) => (
           <View style={styles.container}>
-            <Text style={tw `text-gray-900 dark:text-gray-100`}>{item.title}</Text>
+            <Text style={tw ``}>{item.title}</Text>
             <Text style={tw `text-gray-900 dark:text-gray-100`}>{item.body}</Text>
             <Text style={tw `text-gray-900 dark:text-gray-100`}>{item.title}</Text>
           </View>
