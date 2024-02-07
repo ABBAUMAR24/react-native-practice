@@ -1,14 +1,18 @@
-import { StyleSheet, Text, TextInput, FlatList, ActivityIndicator, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Text, TextInput, FlatList, Modal, View,  Image, Button } from 'react-native'
 import React from 'react'
 import tw  from "twrnc";
-import { useEffect,useState,useRef } from "react";
+import { useEffect,useState,useRef } from "react"
+// const img1 = require ('./assets/adaptive-icon.png')
 
 
-const HomeScreen = () => {
+
+
+const HomeScreen = ( {Navigation}) => {
   const [loading, setloading] = useState(false)
   const [limit , setlimit] = useState('')
   const [post , setpost] = useState([])
   const inputRef = useRef()
+  const [modalvisible, setmodalvisible] = useState (false)
 
 const fetchdata = async(  )  =>  {
   setloading(true)
@@ -56,6 +60,22 @@ useEffect(() => {
           </View>
         )}
         />
+          {/* <Image 
+           style={{height : 100 , width: 100}}
+           source={img1}
+          /> */}
+          <Button
+            title='open modal'
+            onPress={() => setmodalvisible (true)}
+          />
+            <Modal visible ={modalvisible}>
+                <Text>yo im modal content</Text>
+                <Button
+                // disabled = {}
+                title='close modal'
+                onPress={() => setmodalvisible (false)}
+                />
+            </Modal>
        </View>    
        
     </View>

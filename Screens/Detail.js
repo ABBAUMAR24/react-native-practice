@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,SafeAreaView } from 'react-native'
 import React from 'react'
+import { NavigationContainer , useNavigation} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Detail = () => {
+const Detail = ({navigation}) => {
+
   return (
-    <View>
+    <SafeAreaView>
       <Text>Detail</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
