@@ -2,7 +2,6 @@ import { StyleSheet, Text, TextInput, FlatList, Modal, View,  Image, Button } fr
 import React from 'react'
 import tw  from "twrnc";
 import { useEffect,useState,useRef } from "react"
-// const img1 = require ('./assets/adaptive-icon.png')
 
 
 
@@ -60,16 +59,18 @@ useEffect(() => {
           </View>
         )}
         />
-          {/* <Image 
-           style={{height : 100 , width: 100}}
-           source={img1}
-          /> */}
+         
           <Button
+          disabled = {limit}
             title='open modal'
             onPress={() => setmodalvisible (true)}
           />
             <Modal visible ={modalvisible}>
                 <Text>yo im modal content</Text>
+                <Image 
+           style={{height : 300 , width: 300}}
+          source={{uri: 'https://picsum.photos/200'}}
+          />
                 <Button
                 // disabled = {}
                 title='close modal'
