@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TextInput, FlatList, Modal, View,  Image, Button } from 'react-native'
 import React from 'react'
 import tw  from "twrnc";
-import { useEffect,useState,useRef } from "react"
-
+import { useEffect,useState,useRef } from "react";
+import { NativeBaseProvider,  Box } from "native-base";
 
 
 
@@ -37,6 +37,9 @@ useEffect(() => {
 // }
 
   return (
+    <NativeBaseProvider>
+
+    
     <View style={tw `mt-10`}>
       <Text style={[tw `text-3xl  font-semibold text-center `, styles.textt]}>Super World</Text>
       <TextInput
@@ -61,7 +64,7 @@ useEffect(() => {
         />
          
           <Button
-          disabled = {limit}
+          // disabled = {limit}
             title='open modal'
             onPress={() => setmodalvisible (true)}
           />
@@ -77,9 +80,13 @@ useEffect(() => {
                 onPress={() => setmodalvisible (false)}
                 />
             </Modal>
+            <Box>
+              <Text>hello</Text>
+            </Box>
        </View>    
        
     </View>
+    </NativeBaseProvider>
   )
 }
 
